@@ -7,9 +7,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using RestWithASPNETUdemy.Business;
+using RestWithASPNETUdemy.Business.Implementations;
 using RestWithASPNETUdemy.Model.Context;
-using RestWithASPNETUdemy.Services;
-using RestWithASPNETUdemy.Services.Implementations;
+using RestWithASPNETUdemy.Repository;
+using RestWithASPNETUdemy.Repository.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +41,8 @@ namespace RestWithASPNETUdemy
             services.AddApiVersioning();
 
             //INJECAO DE DEPENDENCIAS PARA SERVICOS
-            services.AddScoped<IPersonService, PersonServiceImplementation>();
+            services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
+            services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
 
         }
 
