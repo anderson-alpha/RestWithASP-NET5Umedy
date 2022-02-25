@@ -2,7 +2,6 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-
 namespace RestWithASPNETUdemy.Model
 {
     [Table("books")]
