@@ -14,7 +14,7 @@ namespace RestWithASPNETUdemy.Business.Implementations
         //private volatile int count;
         //private readonly IBookRepository _repository; // Antes da implementacao generic
 
-        private readonly IRepository<Book> _repository;
+        private readonly IRepository<Book> _repository; // Antes da implementacao generic
 
         public BookBusinessImplementation(IRepository<Book> repository)
         {
