@@ -1,0 +1,24 @@
+sudo: required
+dist: bionic
+language: csharp
+mono: none
+dotnet: 5.0
+services: docker
+before_install:
+  - cd 18_RestWithASPNETUdemy_Upload_Docker/RestWithASPNETUdemy
+  #18_RestWithASPNETUdemy_Upload_Docker
+  #- echo "Cheguei no diretorio"
+script:
+  - docker-compose build
+before_deploy:
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+deploy:
+  provider: script
+  script:
+    #docker tag api-asp-net-core-5:latest $DOCKER_USERNAME/api-asp-net-core-5:latest;
+    docker tag rest-with-asp-net-udemy:latest $DOCKER_USERNAME/rest-with-asp-net-udemy:latest;
+    docker push $DOCKER_USERNAME/rest-with-asp-net-udemy:latest;
+  on:
+    brach: main
+notifications:
+  email: false
