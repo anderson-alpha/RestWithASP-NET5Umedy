@@ -122,7 +122,7 @@ namespace RestWithASPNETUdemy
                 c.SwaggerDoc("v1",
                     new OpenApiInfo
                     {
-                        Title = "CURSO REST API UDEMY",
+                        Title = "CURSO REST API UDEMY - DeployAzure",
                         Version = "v1",
                         Description = "API RESTFUL DEVELOPED IN COURSE",
                         Contact = new OpenApiContact
@@ -197,7 +197,7 @@ namespace RestWithASPNETUdemy
             }
             catch (Exception ex)
             {
-                Log.Error("Migração do bando de dados falhou", ex);
+                Log.Error("MigraÃ§Ã£o do bando de dados falhou", ex);
                 throw;
             }
         }
