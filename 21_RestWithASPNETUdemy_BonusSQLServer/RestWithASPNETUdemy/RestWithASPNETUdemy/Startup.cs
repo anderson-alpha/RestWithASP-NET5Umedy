@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Rewrite;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -94,8 +95,14 @@ namespace RestWithASPNETUdemy
             
             services.AddControllers();
 
-            var connection = Configuration["MySQLConnection:MySQLConnectionString"];
-            services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
+            //var connection = Configuration["MySQLConnection:MySQLConnectionString"];
+            //services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
+
+            //var connection = Configuration["PgSQLConnection:PgSQLConnectionString"];
+            //services.AddDbContext<PgSQLContext>(options => options.UseNpgsql(connection));
+
+            var connection = Configuration["SQLServerConnection:SQLServerConnectionString"];
+            services.AddDbContext<MSSQLContext>(options => options.UseSqlServer(connection));
 
             if (Environment.IsDevelopment())
             {
@@ -187,7 +194,10 @@ namespace RestWithASPNETUdemy
         {
             try
             {
-                var evolveConnection = new MySql.Data.MySqlClient.MySqlConnection(connection);
+                //var evolveConnection = new MySql.Data.MySqlClient.MySqlConnection(connection);
+                //var evolveConnection = new Npgsql.NpgsqlConnection(connection);
+
+                var evolveConnection = new SqlConnection(connection);
                 var evolve = new Evolve.Evolve(evolveConnection, msg => Log.Information(msg))
                 {
                     Locations = new List<string> { "db/migrations", "db/dataset" },

@@ -9,11 +9,11 @@ namespace RestWithASPNETUdemy.Repository.Implementations
 {
     public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
-        protected MySQLContext _context;
+        protected MSSQLContext _context;
 
         private DbSet<T> dataset;
 
-        public GenericRepository(MySQLContext context)
+        public GenericRepository(MSSQLContext context)
         {
             _context = context;
             dataset = _context.Set<T>(); /*É como se estivesse setando uma tabela no startup*/

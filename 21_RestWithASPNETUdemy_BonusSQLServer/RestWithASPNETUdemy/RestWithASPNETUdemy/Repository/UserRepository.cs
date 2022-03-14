@@ -5,20 +5,23 @@ using System;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Data.SqlTypes;
+using System.Data.SqlClient;
 
 namespace RestWithASPNETUdemy.Repository
 {
     public class UserRepository : IUserRepository
     {
-        private readonly MySQLContext _context;
+        private readonly MSSQLContext _context;
 
-        public UserRepository(MySQLContext context)
+        public UserRepository(MSSQLContext context)
         {
             _context = context;
         }
         public User ValidateCredentials(UserVO user)
         {
             var pass = ComputeHash(user.Password, new SHA256CryptoServiceProvider());
+
             return _context.Users.FirstOrDefault(u => (u.UserName == user.UserName) && (u.Password == pass));
         }
 

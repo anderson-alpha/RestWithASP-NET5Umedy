@@ -97,7 +97,7 @@ insert into person (id,first_name, last_name, address, gender, enabled) values
 (nextval('person_seq'),'Fernanda', 'Paolazzi', '8009 Armistice Lane', 'Female', '0'),
 (nextval('person_seq'),'Coletta', 'Brinkman', '9 Northview Parkway', 'Female', '0'),
 (nextval('person_seq'),'Wendeline', 'Kiley', '79656 Trailsway Place', 'Male', '0'),
-(nextval('person_seq'),'Sigismundo', 'Edgecumbe', '88 Rusk Pass', 'Female', '1'),
+--(nextval('person_seq'),'Sigismundo', 'Edgecumbe', '88 Rusk Pass', 'Female', '1'),
 (nextval('person_seq'),'Brandise', 'Westmerland', '8643 Corscot Place', 'Female', '1'),
 (nextval('person_seq'),'Bidget', 'Asling', '6633 Fordem Trail', 'Female', '1'),
 (nextval('person_seq'),'Margaret', 'Stanmer', '8931 Texas Park', 'Male', '1'),
